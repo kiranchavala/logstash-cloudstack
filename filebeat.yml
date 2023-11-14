@@ -1,0 +1,32 @@
+filebeat.inputs:
+
+- type: filestream
+  id: management-server
+  enabled: true
+  paths:
+    - /var/log/cloudstack/management/management-server.log
+  parsers:
+  - multiline:
+      type: pattern
+      pattern: '^([0-9]{4}-[0-9]{2}-[0-9]{2})'
+      negate: true
+      match: after
+  fields:
+    log_type: ms_log
+
+- type: filestream
+  id: apiserver
+  enabled: true
+  paths:
+    - /var/log/cloudstack/management/apilog.log
+  parsers:
+  - multiline:
+      type: pattern
+      pattern: '^([0-9]{4}-[0-9]{2}-[0-9]{2})'
+      negate: true
+      match: after
+  fields:
+    log_type: api_log
+
+output.logstash:
+  hosts: ["10.0.35.186:5044"]
