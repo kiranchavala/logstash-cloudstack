@@ -1,13 +1,7 @@
-This contains the logstash filtering for Cloudstack mangement server
+System requirement for ELK 
 
-make sure to save the work ELK server
+Centos 7/8 with about 4gb ram 
 
-Example
-
-1. logstash conf under  /etc/logstash
-
-2. The grok pattern looks uner /etc/logstash/pattern
-
-3. /usr/share/logstash
-
-bin/logstash -f  /etc/logstash/cloudstack.conf
+1. Cloudstack management server
+2. Logstash server
+3. Elastic search server
