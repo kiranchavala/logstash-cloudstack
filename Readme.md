@@ -85,3 +85,47 @@ type=rpm-md
 
 
 yum install --enablerepo=elasticsearch elasticsearch 
+
+
+
+**Step 4**
+
+Install grafana 
+
+cat /etc/yum.repos.d/grfana.repo
+
+wget -q -O gpg.key https://rpm.grafana.com/gpg.key
+sudo rpm --import gpg.key
+
+
+[grafana]
+name=grafana
+baseurl=https://rpm.grafana.com
+repo_gpgcheck=1
+enabled=1
+gpgcheck=1
+gpgkey=https://rpm.grafana.com/gpg.key
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+
+Populated the datasource ELK and MYSQL 
+
+![grfana datasource](https://github.com/kiranchavala/logstash-cloudstack/assets/1401014/dd0a6161-c47f-4fa4-8a72-0aea9ca10894)
+
+
+![grfana datasource2](https://github.com/kiranchavala/logstash-cloudstack/assets/1401014/7c2cb286-9746-48a5-8844-690eaaeca790)
+
+
+Dashboard variables 
+
+![Dashboard variables](https://github.com/kiranchavala/logstash-cloudstack/assets/1401014/fe82ecde-c4e6-47b2-8043-f4bdf5809916)
+
+
+Sample Dashboard
+
+
+![Sample Dashboard](https://github.com/kiranchavala/logstash-cloudstack/assets/1401014/b719486c-9fa6-4f57-9290-bf48572065cd)
+
+
+
+
